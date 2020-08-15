@@ -1,0 +1,21 @@
+.Cards {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+
+.Confirmed {
+	border-bottom: 10px solid rgba(255, 0, 0, 0.5);
+}
+
+.Recovered {
+	border-bottom: 10px solid rgba(0, 255, 0, 0.5);
+}
+
+.Deceased {
+	border-bottom: 10px solid rgba(0, 0, 0, 0.5);
+}
+
+.Active {
+	border-bottom: 10px solid rgba(0, 0, 255, 0.5);
+}

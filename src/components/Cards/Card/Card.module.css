@@ -1,0 +1,20 @@
+.Card {
+	height: auto;
+	width: 100vh;
+	margin: 5px;
+	border: 1px solid;
+	border-color: #efefef;
+	box-shadow: 2px 2px #efefef;
+	border-radius: 5px;
+}
+
+.Title {
+	color: #a0a0a0;
+	font-size: 13px;
+	box-sizing: border-box;
+	font-weight: lighter;
+}
+
+.Count {
+	font-size: 30px;
+}
