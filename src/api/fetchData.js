@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const BASE_URL = "https://mh34-api.vercel.app/temp/data.json";
+const BASE_URL = "https://api.covid19india.org/v4/min/timeseries-MH.min.json";
 
 const fetchData = async () => {
 	let formatedData = null;
