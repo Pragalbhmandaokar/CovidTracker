@@ -25,7 +25,7 @@ class App extends React.Component {
 				<h1>MH-34 Covid Tracker</h1>
 				<Cards
 					confirmed={data.confirmed}
-					active={data.confirmed - data.recovered}
+					active={data.active}
 					recovered={data.recovered}
 					deceased={data.deceased}
 				/>
