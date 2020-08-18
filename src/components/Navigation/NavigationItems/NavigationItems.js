@@ -15,7 +15,7 @@ const navigationItems = () => (
 		</NavigationItem>
 		<NavigationItem link='/github'>
 			<GitHub color='#1d406f' />
-			<span className={classes.MobileOnly}>Contibute on GitHub</span>
+			<span className={classes.MobileOnly}>GitHub</span>
 		</NavigationItem>
 	</ul>
 );
