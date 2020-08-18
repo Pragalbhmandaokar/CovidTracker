@@ -15,7 +15,7 @@ const CardComponent = ({ value, title, className }) => {
 				<CountUp
 					className={style.Count}
 					start={0}
-					end={value}
+					end={Number.parseInt(value)}
 					duration={2.75}
 					separator=','
 				/>

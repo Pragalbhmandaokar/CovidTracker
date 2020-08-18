@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Line } from "react-chartjs-2";
-import fetchData from "../../api/fetchData";
+import axios from "axios";
 import style from "./Charts.module.css";
 
 const Chart = () => {
@@ -8,16 +8,17 @@ const Chart = () => {
 	const [duration, setDuration] = useState(1);
 
 	useEffect(() => {
-		const fetAPI = async () => {
-			const initalData = await fetchData();
+		let initialData = [];
+
+		axios.get("https://mh34-api.vercel.app/temp/data.json").then(resp => {
+			initialData = resp.data;
 			setData(
-				initalData.slice(
-					duration === 0 ? 0 : initalData.length - duration * 30,
-					initalData.length - 1
+				initialData.slice(
+					duration === 0 ? 0 : initialData.length - duration * 30,
+					initialData.length - 1
 				)
 			);
-		};
-		fetAPI();
+		});
 	}, [duration]);
 
 	const chartDataHandler = number => {
@@ -34,7 +35,7 @@ const Chart = () => {
 						datasets: [
 							{
 								label: "Confirmed",
-								fill: true,
+								backgroundColor: "#ffa5a5",
 								borderColor: "#ff073a",
 								data: data.map(item => item.confirmed),
 							},
@@ -48,8 +49,23 @@ const Chart = () => {
 						labels: data.map(item => item.date),
 						datasets: [
 							{
+								label: "Active",
+								backgroundColor: "#a5ccff",
+								borderColor: "#0000ff80",
+								data: data.map(item => item.active),
+							},
+						],
+					}}
+				/>
+			</div>
+			<div className={style.Chart}>
+				<Line
+					data={{
+						labels: data.map(item => item.date),
+						datasets: [
+							{
 								label: "Recovered",
-								fill: true,
+								backgroundColor: "#a5ffb4",
 								borderColor: "#28a745",
 								data: data.map(item => item.recovered),
 							},
@@ -64,24 +80,9 @@ const Chart = () => {
 						datasets: [
 							{
 								label: "Deceased",
-								fill: true,
+								backgroundColor: "#c5c5c5",
 								borderColor: "#6c757d",
 								data: data.map(item => item?.deceased),
-							},
-						],
-					}}
-				/>
-			</div>
-			<div className={style.Chart}>
-				<Line
-					data={{
-						labels: data.map(item => item.date),
-						datasets: [
-							{
-								label: "Tested",
-								fill: true,
-								borderColor: "#201aa2dd",
-								data: data.map(item => item?.tested),
 							},
 						],
 					}}
@@ -105,7 +106,7 @@ const Chart = () => {
 				onClick={() => chartDataHandler(1)}>
 				1 Month
 			</button>
-			{lineChart}
+			<div className={style.ChartContainer}>{lineChart}</div>
 		</>
 	);
 };

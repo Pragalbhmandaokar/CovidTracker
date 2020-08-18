@@ -5,17 +5,23 @@
 }
 
 .Confirmed {
-	border-bottom: 10px solid rgba(255, 0, 0, 0.5);
+	background: #ffa5a5;
 }
 
 .Recovered {
-	border-bottom: 10px solid rgba(0, 255, 0, 0.5);
+	background: #a5ffb4;
 }
 
 .Deceased {
-	border-bottom: 10px solid rgba(0, 0, 0, 0.5);
+	background: #c5c5c5;
 }
 
 .Active {
-	border-bottom: 10px solid rgba(0, 0, 255, 0.5);
+	background: #a5ccff;
+}
+
+@media (min-width: 500px) {
+	.Cards {
+		padding: 0 20%;
+	}
 }

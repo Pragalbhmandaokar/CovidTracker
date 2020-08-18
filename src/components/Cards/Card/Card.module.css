@@ -1,5 +1,5 @@
 .Card {
-	height: auto;
+	height: 100px;
 	width: 100vh;
 	margin: 5px;
 	border: 1px solid;
@@ -9,10 +9,11 @@
 }
 
 .Title {
-	color: #a0a0a0;
-	font-size: 13px;
+	color: #2c2c2c;
+	padding-top: 10px;
+	font-size: 15px;
 	box-sizing: border-box;
-	font-weight: lighter;
+	font-weight: 300;
 }
 
 .Count {

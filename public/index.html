@@ -10,10 +10,45 @@
 			content="Covid case tracker for Chandrapur District"
 		/>
 		<link
-			href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap"
+			href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap"
 			rel="stylesheet"
 		/>
 		<link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+
+		<!-- Google Analytics -->
+		<script>
+			(function (i, s, o, g, r, a, m) {
+				i["GoogleAnalyticsObject"] = r;
+				(i[r] =
+					i[r] ||
+					function () {
+						(i[r].q = i[r].q || []).push(arguments);
+					}),
+					(i[r].l = 1 * new Date());
+
+				setTimeout(() => {
+					(a = s.createElement(o)),
+						(m = s.getElementsByTagName(o)[0]);
+					a.async = 1;
+					a.src = g;
+					m.parentNode.insertBefore(a, m);
+				}, 3000); // Wait 3 seconds
+			})(
+				window,
+				document,
+				"script",
+				"https://www.google-analytics.com/analytics.js",
+				"ga"
+			);
+
+			ga("create", "UA-172456606-1", {
+				site_speed_sample_rate: 1,
+				sample_rate: 1,
+			});
+			ga("send", "pageview");
+		</script>
+		<!-- End Google Analytics -->
+
 		<title>MH-34 Covid Tracker</title>
 	</head>
 	<body>
