@@ -15,7 +15,7 @@ const Chart = () => {
 			setData(
 				initialData.slice(
 					duration === 0 ? 0 : initialData.length - duration * 30,
-					initialData.length - 1
+					initialData.length
 				)
 			);
 		});
