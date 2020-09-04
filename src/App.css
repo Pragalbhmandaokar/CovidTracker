@@ -110,15 +110,52 @@ ul {
 	display: none;
 }
 
-.container {
-	height: fit-content;
-	margin: 1rem;
+.container,
+.footer {
 	display: flex;
 	flex-flow: column;
 	justify-content: center;
-	align-content: flex-start;
-	border-radius: 1rem;
 	background: #fff;
+}
+
+.container {
+	height: fit-content;
+	border-radius: 1rem;
+	margin: 1rem;
+	align-content: flex-start;
+}
+
+.footer {
+	padding: 2rem 0;
+	align-content: center;
+}
+
+.footer a {
+	padding: 0 0.5rem;
+}
+
+.footer a,
+.title1 a,
+.footer a:active,
+.title1 a:active {
+	text-decoration: none;
+	opacity: 0.8;
+	color: black;
+}
+
+.footer-links {
+	padding: 0.5rem;
+	display: flex;
+	justify-content: center;
+	align-content: center;
+}
+
+.footer-links a > svg {
+	opacity: 0.8;
+}
+
+.footer-links a > svg:hover {
+	opacity: 1;
 }
 
 .chart {
