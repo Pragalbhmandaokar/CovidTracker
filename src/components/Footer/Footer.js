@@ -1,22 +1,29 @@
 import React from "react";
+import * as Icon from "react-feather";
 
-import style from "./Footer.module.css";
-
-const Footer = () => (
-	<div className={style.Footer}>
-		<div className={style.Link}>
-			<a
-				href='https://github.com/ameykhaire/mh34-covid-tracker'
-				target='_blank'
-				rel='noopener noreferrer'>
-				MH34 Covid Tracker
-			</a>
-		</div>
-		<h5 className={style.Content}>
-			Based on data of
-			<strong> Local Authority (Collector Office, Chandrapur)</strong>
-		</h5>
-	</div>
-);
+const Footer = () => {
+	return (
+		<footer className='footer'>
+			<h2 className='title1'>
+				<a href='#'>MH34 Coivd Tracker</a>
+			</h2>
+			<p className='title1'>This is not a official website.</p>
+			<div className='footer-links'>
+				<a href='#'>
+					<Icon.Instagram color='orange' />
+				</a>
+				<a href='#'>
+					<Icon.Facebook color='#1877f2' />
+				</a>
+				<a href='#'>
+					<Icon.Twitter color='#71c9f8' />
+				</a>
+				<a href='#'>
+					<Icon.GitHub />
+				</a>
+			</div>
+		</footer>
+	);
+};
 
 export default Footer;

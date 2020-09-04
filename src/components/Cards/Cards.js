@@ -1,47 +1,58 @@
-import React, { useEffect, useState } from "react";
-import Card from "./Card/Card";
+import React, { useState, useEffect } from "react";
+import { PulseLoader } from "react-spinners";
+import Card from "./Card";
 import axios from "axios";
-import style from "./Cards.module.css";
 
 const Cards = () => {
 	const [data, setData] = useState({});
+	const [prevData, setPrevData] = useState({});
+
 	useEffect(() => {
 		axios
 			.get("https://mh34-api.vercel.app/temp/data.json")
 			.then(resp => {
 				setData(resp.data[resp.data.length - 1]);
+				setPrevData(resp.data[resp.data.length - 2]);
 			})
 			.catch(err => console.log(err));
 	}, []);
-	if (!data.confirmed) {
-		return "Loading......";
-	}
+
 	return (
-		<>
-			<h2>Current stats:</h2>
-			<div className={style.Cards}>
-				<Card
-					value={data.confirmed}
-					title='Confirmed'
-					className={style.Confirmed}
-				/>
-				<Card
-					value={data.active}
-					title='Active'
-					className={style.Active}
-				/>
-				<Card
-					value={data.recovered}
-					title='Recovered'
-					className={style.Recovered}
-				/>
-				<Card
-					value={data.deceased}
-					title='Deceased'
-					className={style.Deceased}
-				/>
+		<div className='container'>
+			<div className='title p1'>Current stats:</div>
+			<div className='card-container'>
+				{data.confirmed & prevData.confirmed ? (
+					<>
+						<Card
+							value={data.confirmed}
+							title='Confirmed'
+							bg='confirmed'
+							inc={data.confirmed - prevData.confirmed}
+						/>
+						<Card
+							value={data.active}
+							title='Active'
+							bg='active'
+							inc={data.active - prevData.active}
+						/>
+						<Card
+							value={data.recovered}
+							title='Recovred'
+							bg='recovred'
+							inc={data.recovered - prevData.recovered}
+						/>
+						<Card
+							value={data.deceased}
+							title='Deceased'
+							bg='deceased'
+							inc={data.deceased - prevData.deceased}
+						/>
+					</>
+				) : (
+					<PulseLoader loading color='#AADEF0' />
+				)}
 			</div>
-		</>
+		</div>
 	);
 };
 
