@@ -1,14 +1,14 @@
-import React, { Suspense, lazy } from "react";
+import React from "react";
 import { Route, Redirect, Switch, useLocation } from "react-router-dom";
 
 import "./App.css";
 
 import Navbar from "./components/Navbar/Navbar";
-const Home = lazy(() => import("./views/Home"));
-const Faqs = lazy(() => import("./views/Faqs"));
-const Symptons = lazy(() => import("./views/Symptons"));
-const Prevention = lazy(() => import("./views/Preventions"));
-const Footer = lazy(() => import("./components/Footer/Footer"));
+import Home from "./views/Home";
+import Faqs from "./views/Faqs";
+import Symptons from "./views/Symptons";
+import Prevention from "./views/Preventions";
+import Footer from "./components/Footer/Footer";
 
 function App() {
 	const location = useLocation();
@@ -16,47 +16,37 @@ function App() {
 		{
 			pageLink: "/",
 			view: Home,
-			displayName: "Home",
-			icon: "Home",
 		},
 		{
 			pageLink: "/symptions",
 			view: Symptons,
-			displayName: "Symptions",
-			icon: "LifeBuoy",
 		},
 		{
 			pageLink: "/prevention",
 			view: Prevention,
-			displayName: "Prevention",
-			icon: "Shield",
 		},
 		{
 			pageLink: "/faqs",
 			view: Faqs,
-			displayName: "Faqs",
-			icon: "HelpCircle",
 		},
 	];
 	return (
 		<div className='App'>
 			<Navbar />
 			<main className='content'>
-				<Suspense fallback={<div />}>
-					<Switch location={location}>
-						{pages.map((page, index) => {
-							return (
-								<Route
-									exact
-									path={page.pageLink}
-									render={({ match }) => <page.view />}
-									key={index}
-								/>
-							);
-						})}
-						<Redirect to='/' />
-					</Switch>
-				</Suspense>
+				<Switch location={location}>
+					{pages.map((page, index) => {
+						return (
+							<Route
+								exact
+								path={page.pageLink}
+								render={({ match }) => <page.view />}
+								key={index}
+							/>
+						);
+					})}
+					<Redirect to='/' />
+				</Switch>
 			</main>
 			<Footer />
 		</div>
