@@ -32,7 +32,7 @@ function Navbar() {
 			<li className='nav-items' onClick={menuToggleHandler}>
 				<NavLink to='/symptions' activeClassName='nav-active'>
 					<Icon.LifeBuoy />
-					<span className='nav-heading'>Symptions</span>
+					<span className='nav-heading'>Symptoms</span>
 				</NavLink>{" "}
 			</li>
 			<li className='nav-items' onClick={menuToggleHandler}>
@@ -44,7 +44,7 @@ function Navbar() {
 			<li className='nav-items' onClick={menuToggleHandler}>
 				<NavLink to='/faqs' activeClassName='nav-active'>
 					<Icon.HelpCircle />
-					<span className='nav-heading'>Faqs</span>
+					<span className='nav-heading'>FAQS</span>
 				</NavLink>
 			</li>
 		</ul>
